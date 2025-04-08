@@ -1,0 +1,22 @@
+name: Python Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Run Python file
+        run: python parity.py
+
